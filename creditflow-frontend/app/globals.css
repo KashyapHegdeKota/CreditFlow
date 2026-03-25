@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@theme {
+  --font-family-sans: var(--font-geist), system-ui, sans-serif;
+  --font-family-mono: var(--font-geist-mono), "Fira Code", monospace;
+  --color-brand-50: #eef2ff;
+  --color-brand-100: #e0e7ff;
+  --color-brand-600: #4f46e5;
+  --color-brand-700: #4338ca;
+}
+
+/* Safelisted dynamic classes — Tailwind v4 can't scan runtime string interpolation */
+@source inline("bg-emerald-500 bg-indigo-500");
+
+@layer base {
+  * { box-sizing: border-box; }
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 999px; }
+  ::-webkit-scrollbar-thumb:hover { background: #cbd5e1; }
+}
+
+@layer utilities {
+  .anim-fade-in   { animation: anim-fade-in   0.2s ease both; }
+  .anim-slide-up  { animation: anim-slide-up  0.3s ease both; }
+  .anim-slide-right { animation: anim-slide-right 0.3s ease both; }
+}
+
+@keyframes anim-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes anim-slide-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes anim-slide-right {
+  from { opacity: 0; transform: translateX(16px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
